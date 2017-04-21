@@ -1,0 +1,21 @@
+server:
+  port: 8081
+keycloak:
+  auth-server-url: "http://a55e0de07146711e79b49021a2f0ec75-836609086.us-west-1.elb.amazonaws.com:8080/auth"
+  bearer-only: true
+  credentials:
+    secret: 741bd5c7-2a8a-44a9-ba70-938297163f36
+  realm: springboot
+  realmKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvhPNDGvtQE+xJSv989qcK8/4Y5exGhFGss281s2Wp3TVjjllPNHsKKLohK/L1SGBBXy12wdpUZU6ZSg8U3pwib8S7pACe3gJ6rl+Orilw0GNY9ofYXWwIYn1GLgVIAKGXsnFC/ocihYu3meKCtaLbpTqB/BhIPqTjeTi5wbc9aZt19/ERjLeFO+55vLQZjsehMOi/tzdqkfrQJ8okX0VIJN3qlFzwV+tLO2L7Rjol3ioQCMtAKVI+y4raoiAB9PEZgDp6qfbMceSRVRWeOm14XuBS3zY4k6H+btZu8mB32MjEkLFtRqPcQsUSNh9MbVvYF5xcBmQpsHU71RB/1i3QwIDAQAB
+  resource: bid-service
+  securityConstraints:
+    -
+      securityCollections:
+        -
+          authRoles:
+            - user
+          name: "spring secured api"
+          patterns:
+            - /api/demo/*
+
+  ssl-required: none
